@@ -6,10 +6,6 @@ function App() {
       <div className="App">
          <GlobalStyle />
          <NavbarDawer />
-       
-        
-         
-         
       </div>
       
    )
