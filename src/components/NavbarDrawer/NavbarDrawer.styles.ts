@@ -1,10 +1,12 @@
-import Box from './NavbarDrawer'
+
 import styled from "styled-components";
+import * as S from "./styled"
+import * as M from "@mui/material"
 
 
-export const StyledDrawer = styled(Box)`
-    background-color: #003A62;
-`;
 
-export default StyledDrawer
+export const Box = styled(Box)`
+    color: blue;
+`
+
 

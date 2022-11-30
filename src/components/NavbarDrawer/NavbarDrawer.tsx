@@ -18,8 +18,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ComputerIcon from '@mui/icons-material/Computer';
-import MenuSuporte from '../../components/MenuSuporte';
-import StyledDrawer from './NavbarDrawer.styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MenuSuporte from '../MenuSuporte'
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 
 
 const drawerWidth = 240;
@@ -84,6 +86,14 @@ export default function NavbarDawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
 
   return (
   
@@ -103,6 +113,38 @@ export default function NavbarDawer() {
           <Typography variant="h6" noWrap component="div">
             Suporte
           </Typography>
+          
+          <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircleIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+              </Menu>
+            </div>
+          
         </Toolbar>
       </AppBar>
      
